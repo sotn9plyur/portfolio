@@ -1,0 +1,116 @@
+/* no overflow clip here — the glow is ambient light and has to spill past the
+   section edge. Horizontal runaway is already handled by body { overflow-x: hidden }. */
+.can {
+  position: relative;
+}
+
+.can__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.can__head-arrow {
+  margin-bottom: 12px;
+}
+
+.can__title {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.can__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  align-items: start;
+  gap: clamp(28px, 5vw, 70px);
+  margin-top: clamp(24px, 4vw, 44px);
+}
+
+.can__stack {
+  margin: 0;
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 700;
+}
+
+.can__text {
+  max-width: 360px;
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* ---------- logo grid ---------- */
+
+.can__grid {
+  /* half the width of the empty cross in the middle */
+  --divider-gap: 30px;
+
+  position: relative;
+}
+
+.can__cells {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.can__cell {
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 3vw, 34px);
+}
+
+/* the gradient stop pair leaves the centre transparent, so the rules never cross */
+.can__divider {
+  position: absolute;
+  pointer-events: none;
+}
+
+.can__divider--v {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    #fff 0 calc(50% - var(--divider-gap)),
+    transparent calc(50% - var(--divider-gap)) calc(50% + var(--divider-gap)),
+    #fff calc(50% + var(--divider-gap)) 100%
+  );
+}
+
+.can__divider--h {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    #fff 0 calc(50% - var(--divider-gap)),
+    transparent calc(50% - var(--divider-gap)) calc(50% + var(--divider-gap)),
+    #fff calc(50% + var(--divider-gap)) 100%
+  );
+}
+
+.can__logo {
+  width: 108px;
+  height: 108px;
+  object-fit: contain;
+  transition: transform 0.4s var(--ease);
+}
+
+.can__cell:hover .can__logo {
+  transform: translateY(-6px) scale(1.05);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 860px) {
+  .can__body {
+    grid-template-columns: 1fr;
+  }
+}

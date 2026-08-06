@@ -1,0 +1,151 @@
+.footer {
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(70px, 10vw, 130px);
+  background: radial-gradient(
+      120% 90% at 50% 100%,
+      rgba(var(--blue-rgb), 0.16) 0%,
+      rgba(var(--bg-rgb), 0) 70%
+    ),
+    var(--bg);
+}
+
+/* ---------- floating bubbles ---------- */
+
+.footer__bubbles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  left: var(--left);
+  top: var(--top);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 32% 28%,
+    rgba(255, 255, 255, 0.16),
+    rgba(255, 255, 255, 0.05) 42%,
+    rgba(255, 255, 255, 0.02) 70%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  animation: bubble-drift var(--duration) ease-in-out var(--delay) infinite;
+  will-change: transform;
+}
+
+@keyframes bubble-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(22px, -34px, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(-14px, -58px, 0) scale(0.96);
+  }
+  75% {
+    transform: translate3d(-30px, -26px, 0) scale(1.03);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* ---------- content ---------- */
+
+.footer__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: clamp(60px, 8vw, 110px);
+}
+
+.footer__name {
+  margin: 0;
+  font-size: clamp(38px, 8vw, 104px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.footer__tagline {
+  margin: 18px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.footer__cta {
+  margin-top: clamp(28px, 4vw, 44px);
+  transition: transform 0.35s var(--ease);
+}
+
+.footer__cta img {
+  width: clamp(180px, 20vw, 240px);
+}
+
+.footer__cta:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------- bottom bar ---------- */
+
+.footer__bar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+  color: var(--muted-2);
+}
+
+.footer__made {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer__heart {
+  width: 14px;
+  height: 14px;
+  animation: heart-beat 2.4s ease-in-out infinite;
+}
+
+@keyframes heart-beat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  12% {
+    transform: scale(1.22);
+  }
+  24% {
+    transform: scale(1);
+  }
+  36% {
+    transform: scale(1.16);
+  }
+  48% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 560px) {
+  .footer__bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

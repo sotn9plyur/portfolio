@@ -1,0 +1,277 @@
+.hero {
+  padding-top: clamp(90px, 12vw, 140px);
+  padding-bottom: clamp(40px, 6vw, 70px);
+  overflow: hidden;
+}
+
+/* ---------- backdrop: <LightOval /> behind the artwork, <HeroGrid /> on top ---------- */
+
+.hero__backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  align-items: center;
+  gap: 20px;
+}
+
+/* ---------- copy ---------- */
+
+.hero__greeting {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: var(--orange);
+}
+
+.hero__greeting-dot {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.hero__name {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-size: 125px;
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.hero__role {
+  margin: 14px 0 0;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.hero__role-design {
+  color: var(--orange);
+}
+
+.hero__role-amp {
+  color: var(--muted);
+}
+
+.hero__role-dev {
+  color: var(--blue);
+}
+
+.hero__description {
+  max-width: 580px;
+  margin: 18px 0 0;
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.hero__tagline {
+  margin: 22px 0 0;
+  font-size: 16px;
+  color: var(--muted-2);
+}
+
+/* ---------- visual ---------- */
+
+.hero__visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+}
+
+.hero__image {
+  /* wider than its column on purpose — the artwork reaches past the text */
+  width: 600px;
+  max-width: none;
+  filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.55));
+  animation: hero-float 7s ease-in-out infinite;
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* rotating circular caption */
+.hero__ring {
+  position: absolute;
+  top: 2%;
+  right: -1%;
+  width: 220px;
+  height: 220px;
+  animation: ring-spin 18s linear infinite;
+}
+
+.hero__ring svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* spacing is driven by textLength on the <textPath>, not set here */
+.hero__ring-text {
+  fill: var(--orange);
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+@keyframes ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- timeline ---------- */
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  margin: clamp(24px, 4vw, 48px) 0 0;
+  padding: 14px 0 0;
+  list-style: none;
+  border-top: 1px solid #fff;
+}
+
+.timeline__item:last-child {
+  text-align: right;
+}
+
+.timeline__year {
+  font-size: 15px;
+  color: #fff;
+}
+
+/* ---------- bottom block ---------- */
+
+/* indent that lines the pills up with the text after the short rule */
+.hero__bottom {
+  --lead-indent: 102px;
+
+  position: relative;
+  padding-top: 26px;
+  padding-bottom: 34px;
+  border-bottom: 1px solid #fff;
+}
+
+.hero__bottom-arrow {
+  width: 14px;
+  height: 14px;
+  margin-bottom: 14px;
+  opacity: 0.75;
+  transform: rotate(-90deg);
+}
+
+.hero__since {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 22px;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.hero__since-rule {
+  width: 90px;
+  height: 1px;
+  flex: none;
+  background: #fff;
+}
+
+.hero__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0;
+  padding: 0 0 0 var(--lead-indent);
+  list-style: none;
+}
+
+/* not a button — plain text in a 1px orange frame */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  padding-inline: 44px;
+  border-radius: 999px;
+  background: none;
+  border: 1px solid var(--orange);
+  font-size: 17px;
+}
+
+/* width follows the viewBox so each marker keeps its own aspect ratio */
+.pill__icon {
+  width: auto;
+  height: 15px;
+  flex: none;
+}
+
+.hero__scope {
+  margin: 22px 0 0;
+  padding-left: var(--lead-indent);
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 900px) {
+  .hero__top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero__visual {
+    order: -1;
+    min-height: auto;
+  }
+
+  .hero__image {
+    width: min(78%, 400px);
+  }
+
+  .hero__ring {
+    right: 4%;
+    top: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .timeline__item:nth-child(2),
+  .timeline__item:nth-child(3) {
+    display: none;
+  }
+
+  .hero__pills {
+    padding-left: 0;
+  }
+
+  .pill {
+    padding-inline: 16px;
+  }
+}

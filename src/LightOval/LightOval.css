@@ -1,0 +1,26 @@
+.light-oval {
+  --oval-color: var(--blue);
+  --oval-size: 600px;
+  --oval-x: 50%;
+  --oval-y: 50%;
+  --oval-opacity: 0.35;
+  --oval-blur: 0px;
+
+  position: absolute;
+  top: var(--oval-y);
+  left: var(--oval-x);
+  width: var(--oval-size);
+  height: var(--oval-size);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(var(--oval-blur));
+  background: radial-gradient(
+    circle closest-side,
+    color-mix(in srgb, var(--oval-color) calc(var(--oval-opacity) * 100%), transparent) 0%,
+    color-mix(in srgb, var(--oval-color) calc(var(--oval-opacity) * 55%), transparent) 34%,
+    color-mix(in srgb, var(--oval-color) calc(var(--oval-opacity) * 20%), transparent) 60%,
+    transparent 78%
+  );
+}

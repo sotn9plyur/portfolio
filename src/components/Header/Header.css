@@ -1,0 +1,111 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  padding-block: 16px;
+  background: none;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 155px;
+  height: 58px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-size: 20px;
+  font-weight: 400;
+  white-space: nowrap;
+  transition:
+    transform 0.35s var(--ease),
+    background 0.35s var(--ease),
+    box-shadow 0.35s var(--ease);
+}
+
+/* glass — only this button is frosted, the header itself stays transparent */
+.header__btn--glass {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid #f65f1a;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+
+.header__btn--glass:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.header__btn--solid {
+  background: var(--orange);
+  border: 1px solid #f65f1a;
+}
+
+.header__btn--solid:hover {
+  background: var(--orange-soft);
+  transform: translateY(-1px);
+}
+
+/* language toggle */
+.lang {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 102px;
+  height: 58px;
+  padding: 6px;
+  border-radius: 999px;
+  background: var(--white);
+  border: 1px solid #000000;
+}
+
+/* one knob that slides, instead of two circles fading in and out */
+.lang__knob {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #000000;
+  transition: transform 0.45s var(--ease);
+}
+
+.lang--ru .lang__knob {
+  transform: translateX(44px);
+}
+
+.lang__item {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  transition: color 0.3s var(--ease);
+}
+
+.lang__item.is-active {
+  color: var(--white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang__knob {
+    transition: none;
+  }
+}

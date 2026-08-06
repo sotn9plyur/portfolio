@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node -v)",
+      "PowerShell(npm -v)",
+      "PowerShell(npm install -D playwright-core --no-fund --no-audit 2>&1)",
+      "PowerShell(npm run build 2>&1)",
+      "Bash(npx vite *)",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5180/)"
+    ]
+  }
+}

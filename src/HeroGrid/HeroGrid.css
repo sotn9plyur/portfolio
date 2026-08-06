@@ -1,0 +1,35 @@
+.hero-grid {
+  --grid-cell: 150px;
+  --grid-opacity: 0.075;
+  --grid-x: 50%;
+  --grid-y: 50%;
+  --grid-color: #ffffff;
+  --grid-line: color-mix(
+    in srgb,
+    var(--grid-color) calc(var(--grid-opacity) * 100%),
+    transparent
+  );
+
+  position: absolute;
+  /* bleed by 1px so the first line is never clipped by the parent edge */
+  inset: -1px;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-cell) var(--grid-cell);
+  /* fade the mesh out at the edges so it never hits a hard cut */
+  -webkit-mask-image: radial-gradient(
+    circle at var(--grid-x) var(--grid-y),
+    #000 0%,
+    #000 42%,
+    transparent 72%
+  );
+  mask-image: radial-gradient(
+    circle at var(--grid-x) var(--grid-y),
+    #000 0%,
+    #000 42%,
+    transparent 72%
+  );
+}
