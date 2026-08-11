@@ -1,5 +1,5 @@
 import { useLanguage } from '../../i18n/LanguageContext.jsx'
-import LightOval from '../../LightOval/LightOval.jsx'
+import LightOval from '../LightOval/LightOval.jsx'
 import './Can.css'
 
 const TECHS = [
@@ -14,7 +14,8 @@ export default function Can() {
 
   return (
     <section className="can section" id="can">
-      <LightOval size={700} x="28%" y="80%" opacity={0.2} />
+      {/* pushed off the left edge — only ~60% of the circle stays on screen */}
+      <LightOval size={700} x="5%" y="80%" opacity={0.2} />
 
       <div className="container can__inner">
         <div className="can__head">

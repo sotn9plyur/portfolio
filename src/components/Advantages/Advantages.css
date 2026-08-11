@@ -60,7 +60,7 @@
 }
 
 .accordion__title {
-  font-size: clamp(14px, 1.4vw, 17px);
+  font-size: 24px;
   font-weight: 500;
   transition: color 0.3s var(--ease);
 }
@@ -82,7 +82,7 @@
 .accordion__text {
   max-width: 780px;
   margin: 0 0 26px 32px;
-  font-size: 13px;
+  font-size: 20px;
   line-height: 1.7;
   color: var(--muted);
   opacity: 0;
@@ -97,13 +97,44 @@
   transform: translateY(0);
 }
 
-@media (max-width: 560px) {
+/* ---------- responsive ---------- */
+
+/* Not in the mobile mock, so it follows the same rules as the rest of the page:
+   the heading keeps its right alignment, the rows just get tighter. */
+@media (max-width: 860px) {
+  /* left-aligned like every other mobile heading, and clear of the fixed burger */
+  .advantages__head {
+    justify-content: flex-start;
+    gap: 14px;
+    margin-bottom: 34px;
+  }
+
+  .advantages__title {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .advantages__head-arrow {
+    width: 26px;
+  }
+
   .accordion__trigger {
-    gap: 12px;
-    padding-block: 18px;
+    gap: 14px;
+    padding-block: 20px;
+  }
+
+  .accordion__cross {
+    width: 14px;
+    height: 14px;
+  }
+
+  .accordion__title {
+    font-size: 16px;
   }
 
   .accordion__text {
     margin-left: 28px;
+    margin-bottom: 22px;
+    font-size: 14px;
   }
 }

@@ -47,6 +47,8 @@ export default function Footer() {
         >
           <img src="/buttons/1.png" alt={t.footer.button} />
         </a>
+
+        <img className="footer__cross" src="/SVG/Cross.svg" alt="" aria-hidden="true" />
       </div>
 
       <div className="container footer__bar">

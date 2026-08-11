@@ -1,0 +1,31 @@
+.page {
+  position: relative;
+}
+
+/* The mesh is a page-level layer, but it is only lit where the hero glow falls:
+   the mask is a circle locked to that glow, dissolving outwards to nothing.
+   --glow-x / --glow-y mirror <LightOval size={900} x="66%" y="42%" /> in Hero,
+   resolved against the hero box — keep them in step if that glow moves. */
+.page__grid {
+  --grid-span: 1600px;
+  --glow-x: 950px;
+  --glow-y: 482px;
+  --grid-mask: radial-gradient(
+    circle 620px at var(--glow-x) var(--glow-y),
+    #000 0%,
+    #000 22%,
+    rgba(0, 0, 0, 0.6) 52%,
+    rgba(0, 0, 0, 0.22) 78%,
+    transparent 100%
+  );
+
+  inset: 0 0 auto 0;
+  height: var(--grid-span);
+}
+
+/* on mobile the hero swaps the mesh for heromobile.png */
+@media (max-width: 860px) {
+  .page__grid {
+    display: none;
+  }
+}

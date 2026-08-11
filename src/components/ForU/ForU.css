@@ -80,7 +80,6 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.5));
   opacity: 0;
   transition: opacity 0.55s var(--ease);
 }
@@ -125,14 +124,14 @@
 
 .foru__heading h3 {
   margin: 0;
-  font-size: clamp(15px, 1.5vw, 19px);
+  font-size: 24px;
   font-weight: 600;
 }
 
 .foru__text {
   margin: 14px 0 0 29px;
-  max-width: 420px;
-  font-size: 13px;
+  max-width: 612px;
+  font-size: 16px;
   line-height: 1.65;
   color: var(--muted);
 }
@@ -178,7 +177,7 @@
   height: var(--counter-size);
   font-size: var(--counter-size);
   line-height: var(--counter-size);
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.03em;
   color: #ced3df;
 }
@@ -226,7 +225,7 @@
 
 /* the page total is a plain label — it never animates */
 .foru__total {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--muted);
 }
 
@@ -237,5 +236,96 @@
   .foru__counter-strip,
   .dots__knob {
     transition: none;
+  }
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 860px) {
+  /* Everything here is sized against vh, not vw: the pinned block cannot be
+     scrolled inside, so anything that does not fit the viewport height is
+     clipped away for good — which is how the pagination used to disappear
+     on short screens. */
+  .foru__pin {
+    align-items: flex-start;
+    padding-top: clamp(88px, 13vh, 110px);
+  }
+
+  .foru__head {
+    margin-bottom: clamp(16px, 3vh, 32px);
+  }
+
+  .foru__banner {
+    height: clamp(96px, 16vh, 150px);
+  }
+
+  .foru__body {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .foru__figure {
+    height: clamp(140px, 24vh, 210px);
+    margin-top: clamp(-70px, -9vh, -44px);
+    display: flex;
+    justify-content: center;
+  }
+
+  .foru__content {
+    /* counter and pagination share one row so the dots sit high enough
+       to stay on screen */
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    padding-top: clamp(10px, 2vh, 18px);
+  }
+
+  .foru__texts,
+  .foru__divider {
+    grid-column: 1 / -1;
+  }
+
+  .foru__texts {
+    min-height: 140px;
+  }
+
+  .foru__heading h3 {
+    font-size: 18px;
+  }
+
+  .foru__text {
+    margin-left: 26px;
+    font-size: 14px;
+  }
+
+  .foru__divider {
+    margin: clamp(12px, 2.5vh, 30px) 0 0 26px;
+  }
+
+  /* the counter reads orange on mobile */
+  .foru__counter-value {
+    color: var(--orange);
+  }
+
+  .foru__counter {
+    --counter-size: clamp(44px, 8vh, 64px);
+
+    grid-column: 1;
+    gap: 12px;
+    margin-left: 0;
+    margin-top: clamp(6px, 1.5vh, 14px);
+  }
+
+  .foru__counter-arrow {
+    width: 16px;
+  }
+
+  .foru__pagination {
+    grid-column: 2;
+    align-self: center;
+    margin-top: clamp(6px, 1.5vh, 14px);
+  }
+
+  .foru__total {
+    font-size: 14px;
   }
 }

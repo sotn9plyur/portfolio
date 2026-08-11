@@ -32,7 +32,7 @@
   max-width: 600px;
   height: 1px;
   margin: 56px auto 0;
-  background: #fff;
+  background: var(--white);
 }
 
 /* ---------- left text ---------- */
@@ -43,7 +43,7 @@
 }
 
 .about__lead {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.01em;
@@ -120,14 +120,77 @@
 /* ---------- responsive ---------- */
 
 @media (max-width: 860px) {
+  /* the section keeps the normal page gutter here — the 20px desktop inset
+     would push the backdrop almost edge to edge on a phone */
+  .about .container {
+    padding-inline: var(--gutter);
+  }
+
+  /* the fixed 1400x570 backdrop is desktop-only; here the backdrop becomes a
+     layer that stops partway down, so the white panel lies over its lower
+     edge and hangs below it */
   .about__card {
-    grid-template-columns: 1fr;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+    gap: 0;
+    background-image: none;
+  }
+
+  .about__card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    /* tuned so roughly the top third of the white panel sits on the backdrop */
+    height: 61%;
+    border-radius: 28px;
+    background-image: url('/portfolios/2.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .about__lead {
+    position: relative;
+    padding: 30px 24px 0;
+    font-size: clamp(24px, 6.6vw, 34px);
   }
 
   .about__panel {
-    transform: none;
-    max-width: 340px;
-    width: 100%;
-    margin-inline: auto;
+    position: relative;
+    width: auto;
+    max-width: none;
+    height: auto;
+    margin: 26px 12px 0;
+    padding: 12px 12px 20px;
+    gap: 14px;
+  }
+
+  /* landscape, not square — a 1:1 crop is what made the card so tall */
+  .about__panel-image {
+    flex: none;
+    aspect-ratio: 16 / 9;
+  }
+
+  .about__panel-badge {
+    top: 22px;
+    left: 22px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .about__panel-badge img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .about__cta img {
+    width: 230px;
+  }
+
+  .about__rule {
+    margin-top: 34px;
   }
 }

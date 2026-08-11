@@ -13,6 +13,7 @@ export const translations = {
       roleDev: 'Frontend Developer',
       description:
         'Проектирую цифровые продукты, которые решают бизнес-задачи и приносят удовольствие пользователям',
+      mobileLead: 'Опытный UX/UI-дизайнер: веб и мобильные приложения',
       tagline: 'От прототипов до реализации',
       ring: 'кухня сильных цифровых решений.',
       since: 'с 2016 года обеспечиваю:',
@@ -33,41 +34,41 @@ export const translations = {
       slides: [
         {
           heading: 'UX/UI проектирование:',
-          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+          text: 'Проектирую цифровые продукты — от структуры и пользовательских сценариев до готового интерфейса. Думаю не только о визуале, но и о том, как пользователь взаимодействует с продуктом.',
         },
         {
-          heading: 'Видеопродакшн:',
-          text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries, but also the leap into electronic typesetting',
+          heading: 'Анимация:',
+          text: 'Создаю анимацию и динамическую графику, которые помогают сделать визуал выразительнее. Работаю с After Effects, Premiere Pro и AI-инструментами.',
         },
         {
-          heading: 'Веб-дизайн:',
-          text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Various versions have evolved over the years, sometimes by accident, sometimes on purpose',
+          heading: 'Презентации:',
+          text: 'Превращаю сложную информацию в понятные и визуально выразительные презентации. Работаю с композицией, типографикой, графикой и создаю цельную визуальную подачу.',
         },
         {
-          heading: 'Брендинг:',
-          text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Contrary to popular belief, Lorem Ipsum is not simply random text',
+          heading: '3D дизайн:',
+          text: 'Создаю 3D-визуализации, объекты и сцены для цифровых продуктов и контента. Использую 3D-инструменты и AI для создания необычных визуальных решений.',
         },
       ],
     },
     can: {
       title: ['Умею', 'программировать'],
-      stack: 'TypeScript + React + Tailwind',
-      text: 'Понимаю, как дизайн превращается в код. Пишу интерфейсы, которые удобно проектировать и поддерживать.',
+      stack: 'Frontend Development',
+      text: 'Понимаю, как дизайн превращается в полноценный веб-интерфейс. Разрабатываю адаптивные приложения на React и Next.js, работаю с TypeScript, SCSS и компонентным подходом. Стараюсь сохранять баланс между точным соответствием макету, удобством использования и структурой кода, которую легко поддерживать и развивать.',
     },
     advantages: {
       title: ['Мои', 'преимущества'],
       items: [
         {
-          title: 'Умею работать с нейросетями',
-          text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+          title: 'AI и нейросети',
+          text: 'Использую нейросети в работе с дизайном, разработкой и контентом. Разбираюсь в настройке AI-агентов, подключении инструментов и построении простых цепочек автоматизации. Экспериментирую с разными моделями и способами их использования в реальных рабочих задачах.',
         },
         {
-          title: 'Калибровка SEO',
-          text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+          title: 'Оптимизация SEO',
+          text: 'Работаю с SEO-оптимизацией сайтов. Настраиваю структуру страниц, заголовки, мета-данные и контент, обращаю внимание на технические моменты, которые влияют на отображение сайта в поисковых системах.',
         },
         {
-          title: 'Работа с Zero-блоками',
-          text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+          title: 'Tilda / Zero Block',
+          text: 'Оперативно создаю посадочные страницы и когда стандартных блоков недостаточно для реализации дизайна. Собираю нестандартные секции, настраиваю адаптивность и стараюсь максимально точно перенести готовый макет в работающую страницу.',
         },
       ],
     },
@@ -123,6 +124,7 @@ export const translations = {
       roleDev: 'Frontend Developer',
       description:
         'I design digital products that solve business goals and bring joy to their users',
+      mobileLead: 'Experienced UX/UI designer: web and mobile apps',
       tagline: 'From prototypes to production',
       ring: 'a kitchen of strong digital solutions.',
       since: 'since 2016 I deliver:',
@@ -143,41 +145,41 @@ export const translations = {
       slides: [
         {
           heading: 'UX/UI design:',
-          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+          text: 'I design digital products — from structure and user journeys through to the finished interface. I think not only about how it looks, but about how people actually interact with it.',
         },
         {
-          heading: 'Video production:',
-          text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries, but also the leap into electronic typesetting',
+          heading: 'Animation:',
+          text: 'I create animation and motion graphics that make visuals more expressive. I work with After Effects, Premiere Pro and AI tools.',
         },
         {
-          heading: 'Web design:',
-          text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Various versions have evolved over the years, sometimes by accident, sometimes on purpose',
+          heading: 'Presentations:',
+          text: 'I turn complex information into clear, visually expressive presentations. I work with composition, typography and graphics to build a coherent visual story.',
         },
         {
-          heading: 'Branding:',
-          text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Contrary to popular belief, Lorem Ipsum is not simply random text',
+          heading: '3D design:',
+          text: 'I create 3D visualisations, objects and scenes for digital products and content. I use 3D tools and AI to build unconventional visual solutions.',
         },
       ],
     },
     can: {
       title: ['I can', 'write code'],
-      stack: 'TypeScript + React + Tailwind',
-      text: 'I know how design turns into code. I build interfaces that are easy to design and easy to maintain.',
+      stack: 'Frontend Development',
+      text: 'I understand how a design turns into a fully working web interface. I build responsive applications with React and Next.js, working with TypeScript, SCSS and a component-driven approach. I try to keep the balance between matching the layout precisely, staying comfortable to use, and a code structure that is easy to maintain and grow.',
     },
     advantages: {
       title: ['My', 'advantages'],
       items: [
         {
-          title: 'I work with neural networks',
-          text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+          title: 'AI and neural networks',
+          text: 'I use neural networks in design, development and content work. I know my way around setting up AI agents, wiring in tools and building simple automation chains. I experiment with different models and with ways of putting them to work on real tasks.',
         },
         {
-          title: 'SEO calibration',
-          text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+          title: 'SEO optimisation',
+          text: 'I work on the SEO side of websites. I set up page structure, headings, metadata and content, and keep an eye on the technical details that affect how a site shows up in search engines.',
         },
         {
-          title: 'Working with Zero blocks',
-          text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+          title: 'Tilda / Zero Block',
+          text: 'I build landing pages quickly, including the cases where the stock blocks are not enough to deliver the design. I assemble custom sections, set up responsive behaviour and aim to carry the finished layout over into a working page as precisely as possible.',
         },
       ],
     },

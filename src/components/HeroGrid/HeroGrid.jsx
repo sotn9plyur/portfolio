@@ -17,7 +17,7 @@ export default function HeroGrid({
   opacity = 0.055,
   x = "50%",
   y = "50%",
-  color = "#ffffff",
+  color = "var(--white)",
   className = "",
 }) {
   return (
