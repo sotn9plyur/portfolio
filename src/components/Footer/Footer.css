@@ -2,7 +2,8 @@
   position: relative;
   overflow: hidden;
   padding-top: clamp(70px, 10vw, 130px);
-  background: radial-gradient(
+  background:
+    radial-gradient(
       120% 90% at 50% 100%,
       rgba(var(--blue-rgb), 0.16) 0%,
       rgba(var(--bg-rgb), 0) 70%
@@ -70,7 +71,7 @@
 
 .footer__name {
   margin: 0;
-  font-size: clamp(38px, 8vw, 104px);
+  font-size: 125px;
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0.01em;
@@ -79,7 +80,7 @@
 
 .footer__tagline {
   margin: 18px 0 0;
-  font-size: 13px;
+  font-size: 24px;
   color: var(--muted);
 }
 
@@ -96,6 +97,16 @@
   transform: translateY(-3px);
 }
 
+/* kept in flow rather than absolutely placed, so it follows the button
+   if the block above it ever grows */
+.footer__cross {
+  align-self: flex-start;
+  width: 26px;
+  height: 26px;
+  margin-top: 28px;
+  margin-left: 5%;
+}
+
 /* ---------- bottom bar ---------- */
 
 .footer__bar {
@@ -106,8 +117,7 @@
   justify-content: space-between;
   gap: 16px;
   padding-block: 22px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted-2);
 }
 
@@ -142,10 +152,41 @@
   }
 }
 
+/* ---------- responsive ---------- */
+
+@media (max-width: 860px) {
+  .footer {
+    padding-top: 90px;
+  }
+
+  /* the cross moves above the name instead of sitting under the button */
+  .footer__inner {
+    align-items: center;
+  }
+
+  .footer__cross {
+    order: -1;
+    align-self: flex-end;
+    margin: 0 0 26px;
+  }
+
+  .footer__name {
+    font-size: clamp(40px, 12vw, 68px);
+  }
+
+  .footer__tagline {
+    font-size: 15px;
+  }
+
+  .footer__cta img {
+    width: 200px;
+  }
+}
+
 @media (max-width: 560px) {
   .footer__bar {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 8px;
   }
 }

@@ -1,39 +1,37 @@
-import { useLanguage } from '../../i18n/LanguageContext.jsx'
-import LightOval from '../../LightOval/LightOval.jsx'
-import HeroGrid from '../../HeroGrid/HeroGrid.jsx'
-import './Hero.css'
+import { useLanguage } from "../../i18n/LanguageContext.jsx";
+import LightOval from "../LightOval/LightOval.jsx";
+import "./Hero.css";
 
-const YEARS = ['2016', '2017', '2022', '2026']
+const YEARS = ["2016", "2017", "2022", "2026"];
 
 /* rotating caption ring — the box is 220px wide, so 1 SVG unit == 1px */
-const RING_BOX = 220
-const RING_RADIUS = 85
-const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS
+const RING_BOX = 220;
+const RING_RADIUS = 85;
+const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
 
 /* quality / speed / reliability marker: N half-discs followed by a full disc */
 function PillIcon({ index }) {
-  const width = 12 + index * 8
+  const width = 12 + index * 8;
 
   return (
     <svg className="pill__icon" viewBox={`0 0 ${width} 12`} aria-hidden="true">
       {Array.from({ length: index }, (_, i) => (
-        <path key={i} d={`M${i * 8 + 6},0 a6,6 0 0,0 0,12 z`} fill="#fff" />
+        <path key={i} d={`M${i * 8 + 6},0 a6,6 0 0,0 0,12 z`} fill="var(--white)" />
       ))}
-      <circle cx={width - 6} cy="6" r="6" fill="#fff" />
+      <circle cx={width - 6} cy="6" r="6" fill="var(--white)" />
     </svg>
-  )
+  );
 }
 
 export default function Hero() {
-  const { t, lang } = useLanguage()
-  const ring = t.hero.ring
+  const { t, lang } = useLanguage();
+  const ring = t.hero.ring;
 
   return (
     <section className="hero section" id="hero">
-      {/* glow sits behind the artwork, the grid reads only where the glow lifts it */}
+      {/* the grid is a page-level layer now — see App; only the glow lives here */}
       <div className="hero__backdrop" aria-hidden="true">
         <LightOval size={900} x="66%" y="42%" opacity={0.32} />
-        <HeroGrid cell={150} x="66%" y="42%" />
       </div>
 
       <div className="container hero__inner">
@@ -44,10 +42,30 @@ export default function Hero() {
               {t.hero.greeting}
             </p>
 
-            <h1 className="hero__name">
-              <span>{t.hero.firstName}</span>
-              <span>{t.hero.lastName}</span>
-            </h1>
+            {/* the wrapper anchors the mobile artwork to the name, so it can be
+                centred on it instead of floating somewhere in the section */}
+            <div className="hero__name-wrap">
+              <img
+                className="hero__mobile-art"
+                src="/hero/logo.svg"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <h1 className="hero__name">
+                <span>{t.hero.firstName}</span>
+                <span className="hero__name-last">
+                  {t.hero.lastName}
+                  {/* mobile-only accent next to the surname */}
+                  <img
+                    className="hero__cross"
+                    src="/SVG/Cross.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </span>
+              </h1>
+            </div>
 
             <p className="hero__role">
               <span className="hero__role-design">{t.hero.roleDesign}</span>
@@ -56,6 +74,11 @@ export default function Hero() {
             </p>
 
             <p className="hero__description">{t.hero.description}</p>
+
+            {/* the mock replaces the role line and the long copy with one
+                short lead on narrow screens; CSS swaps which of them shows */}
+            <p className="hero__mobile-lead">{t.hero.mobileLead}</p>
+
             <p className="hero__tagline">{t.hero.tagline}</p>
           </div>
 
@@ -63,7 +86,11 @@ export default function Hero() {
             <img
               className="hero__image"
               src="/hero/hero.png"
-              alt={lang === 'ru' ? 'Планшет, стилус и 3D-сфера' : 'Tablet, stylus and a 3D sphere'}
+              alt={
+                lang === "ru"
+                  ? "Планшет, стилус и 3D-сфера"
+                  : "Tablet, stylus and a 3D sphere"
+              }
             />
 
             {/* rotating badge */}
@@ -103,7 +130,11 @@ export default function Hero() {
         </ul>
 
         <div className="hero__bottom">
-          <img className="hero__bottom-arrow" src="/SVG/ArrowLittle.svg" alt="" />
+          <img
+            className="hero__bottom-arrow"
+            src="/SVG/ArrowLittle.svg"
+            alt=""
+          />
 
           <p className="hero__since">
             <span className="hero__since-rule" />
@@ -123,5 +154,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

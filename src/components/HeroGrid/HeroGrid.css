@@ -3,11 +3,20 @@
   --grid-opacity: 0.075;
   --grid-x: 50%;
   --grid-y: 50%;
-  --grid-color: #ffffff;
+  --grid-color: var(--white);
   --grid-line: color-mix(
     in srgb,
     var(--grid-color) calc(var(--grid-opacity) * 100%),
     transparent
+  );
+  /* fade the mesh out at the edges so it never hits a hard cut.
+     Override this variable to reshape the fade — variables win regardless
+     of stylesheet order, unlike overriding mask-image directly. */
+  --grid-mask: radial-gradient(
+    circle at var(--grid-x) var(--grid-y),
+    #000 0%,
+    #000 42%,
+    transparent 72%
   );
 
   position: absolute;
@@ -19,17 +28,6 @@
     linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: var(--grid-cell) var(--grid-cell);
-  /* fade the mesh out at the edges so it never hits a hard cut */
-  -webkit-mask-image: radial-gradient(
-    circle at var(--grid-x) var(--grid-y),
-    #000 0%,
-    #000 42%,
-    transparent 72%
-  );
-  mask-image: radial-gradient(
-    circle at var(--grid-x) var(--grid-y),
-    #000 0%,
-    #000 42%,
-    transparent 72%
-  );
+  -webkit-mask-image: var(--grid-mask);
+  mask-image: var(--grid-mask);
 }

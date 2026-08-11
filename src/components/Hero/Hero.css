@@ -63,7 +63,7 @@
 }
 
 .hero__role-design {
-  color: var(--orange);
+  color: var(--white);
 }
 
 .hero__role-amp {
@@ -71,7 +71,7 @@
 }
 
 .hero__role-dev {
-  color: var(--blue);
+  color: var(--white);
 }
 
 .hero__description {
@@ -101,7 +101,6 @@
   /* wider than its column on purpose — the artwork reaches past the text */
   width: 600px;
   max-width: none;
-  filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.55));
   animation: hero-float 7s ease-in-out infinite;
 }
 
@@ -153,7 +152,7 @@
   margin: clamp(24px, 4vw, 48px) 0 0;
   padding: 14px 0 0;
   list-style: none;
-  border-top: 1px solid #fff;
+  border-top: 1px solid var(--white);
 }
 
 .timeline__item:last-child {
@@ -161,8 +160,8 @@
 }
 
 .timeline__year {
-  font-size: 15px;
-  color: #fff;
+  font-size: 16px;
+  color: var(--white);
 }
 
 /* ---------- bottom block ---------- */
@@ -174,7 +173,7 @@
   position: relative;
   padding-top: 26px;
   padding-bottom: 34px;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--white);
 }
 
 .hero__bottom-arrow {
@@ -190,7 +189,7 @@
   align-items: center;
   gap: 12px;
   margin: 0 0 22px;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--white);
 }
@@ -199,7 +198,7 @@
   width: 90px;
   height: 1px;
   flex: none;
-  background: #fff;
+  background: var(--white);
 }
 
 .hero__pills {
@@ -221,7 +220,7 @@
   border-radius: 999px;
   background: none;
   border: 1px solid var(--orange);
-  font-size: 17px;
+  font-size: 16px;
 }
 
 /* width follows the viewBox so each marker keeps its own aspect ratio */
@@ -238,26 +237,150 @@
   color: var(--muted);
 }
 
+/* mobile-only pieces, off by default */
+.hero__mobile-art,
+.hero__cross,
+.hero__mobile-lead {
+  display: none;
+}
+
 /* ---------- responsive ---------- */
 
-@media (max-width: 900px) {
+@media (max-width: 860px) {
+  /* Burger sits 16px from the top and is 44px tall, so 160px puts exactly
+     100px of air between its bottom edge and the name.
+     `.hero.section` is needed because index.css is bundled after the component
+     styles, so a single `.hero` would lose to `.section { padding-block }`. */
+  .hero.section {
+    padding-top: 160px;
+  }
+
+  /* `display: contents` dissolves the copy wrapper so the ring, which lives in
+     .hero__visual, can be ordered between the name and the description */
   .hero__top {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .hero__copy {
+    display: contents;
+  }
+
+  /* the mock drops the greeting, the role line and the long copy */
+  .hero__greeting,
+  .hero__role,
+  .hero__description {
+    display: none;
+  }
+
+  /* stretch, or the column shrinks to the text and the cross never
+     reaches the right edge */
+  .hero__name-wrap {
+    order: 2;
+    position: relative;
+    align-self: stretch;
+  }
+
+  .hero__name {
+    position: relative;
+    z-index: 1;
   }
 
   .hero__visual {
-    order: -1;
-    min-height: auto;
+    order: 3;
+    display: block;
+    min-height: 0;
+    margin: 26px 0 34px;
   }
 
+  .hero__mobile-lead {
+    order: 5;
+    display: block;
+    max-width: 340px;
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.45;
+    color: var(--white);
+  }
+
+  .hero__tagline {
+    order: 6;
+    margin-top: 10px;
+  }
+
+  /* the 3D artwork and the page grid give way to the line drawing */
   .hero__image {
-    width: min(78%, 400px);
+    display: none;
   }
 
+  /* centred on the name block, both axes */
+  .hero__mobile-art {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(250px, 74vw, 320px);
+    max-width: none;
+  }
+
+  .hero__name {
+    font-size: clamp(56px, 19vw, 82px);
+    line-height: 1.06;
+  }
+
+  /* the cross is pinned to the right edge, level with the surname */
+  .hero__name-last {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .hero__cross {
+    display: block;
+    width: 26px;
+    height: 26px;
+  }
+
+  /* the ring drops out of the artwork and sits under the name */
   .hero__ring {
-    right: 4%;
-    top: 0;
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 104px;
+    height: 104px;
+    margin-left: 4px;
+  }
+
+  .hero__tagline {
+    font-size: 14px;
+  }
+
+  .hero__since {
+    font-size: 20px;
+  }
+
+  .hero__since-rule {
+    width: 40px;
+  }
+
+  .hero__bottom {
+    --lead-indent: 0px;
+  }
+
+  .hero__pills {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .pill {
+    height: 44px;
+    padding-inline: 28px;
+    font-size: 15px;
   }
 }
 
@@ -265,13 +388,5 @@
   .timeline__item:nth-child(2),
   .timeline__item:nth-child(3) {
     display: none;
-  }
-
-  .hero__pills {
-    padding-left: 0;
-  }
-
-  .pill {
-    padding-inline: 16px;
   }
 }

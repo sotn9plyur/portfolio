@@ -18,7 +18,8 @@
 }
 
 :root {
-  --font-body: "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body:
+    "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: "SF Compact Rounded", var(--font-body);
 
   /* brand palette */
@@ -56,6 +57,9 @@ html {
 
 body {
   margin: 0;
+  /* 375px is the narrowest supported screen; below that the page scrolls
+     sideways rather than collapsing */
+  min-width: 375px;
   background: var(--bg);
   color: var(--white);
   font-family: var(--font-body);
@@ -86,9 +90,12 @@ button {
 
 /* ---------- layout helpers ---------- */
 
-/* full-bleed row: the gutter IS the page padding, no centred max-width box */
+/* The gutter is the page padding. The layout is designed for 375px up to
+   2560px — past that the content stops growing and centres instead. */
 .container {
   width: 100%;
+  max-width: 2560px;
+  margin-inline: auto;
   padding-inline: var(--gutter);
 }
 
@@ -108,7 +115,7 @@ button {
 
 .section-title {
   margin: 0;
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: 60px; /*раньше тут было 44*/
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.15;
@@ -136,7 +143,65 @@ button {
   margin-top: 6px;
 }
 
-/* background layers live in <LightOval /> and <HeroGrid /> — see src/LightOval, src/HeroGrid */
+/* background layers live in <LightOval /> and <HeroGrid /> — see src/components */
+
+/* ---------- corner smoothing ---------- */
+
+/* iOS-style continuous corners. Plain border-radius draws a circular arc that
+   meets the straight edge at a visible kink; a superellipse blends into it.
+   Circles (50%) and capsules (999px) are left alone on purpose — smoothing a
+   shape that is already all curve only distorts it, and iOS keeps capsules
+   capsule-shaped too. Lower --corner-shape = softer. */
+/* @supports (corner-shape: superellipse(3)) {
+  :root {
+    --corner-shape: superellipse(3);
+  }
+
+  .about__card,
+  .about__card::before,
+  .about__panel,
+  .about__panel-image,
+  .about__panel-badge,
+  .foru__banner,
+  .step__badge,
+  .mark {
+    corner-shape: var(--corner-shape);
+  }
+} */
+
+/* ---------- mobile ---------- */
+
+@media (max-width: 860px) {
+  :root {
+    --gutter: 20px;
+    --gutter-narrow: 12px;
+  }
+
+  .section {
+    padding-block: 62px;
+  }
+
+  .section-title,
+  .section-title_myportfolio {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  /* the 80px indent belongs to the desktop grid */
+  .section-title_myportfolio {
+    padding-left: 0;
+  }
+
+  .icon-cross {
+    width: 18px;
+    height: 18px;
+  }
+
+  .icon-arrow-sm {
+    width: 15px;
+    height: 15px;
+    margin-top: 4px;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,
