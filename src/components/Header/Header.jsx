@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLanguage, useLanguageActions } from '../../i18n/LanguageContext.jsx'
 import { LINKS } from '../../i18n/translations.js'
 import './Header.css'
@@ -7,9 +7,12 @@ export default function Header() {
   const { t, lang } = useLanguage()
   const { toggleLang } = useLanguageActions()
   const [menuOpen, setMenuOpen] = useState(false)
+  const headerRef = useRef(null)
 
-  /* the burger only exists on narrow screens; close it on Escape and on resize
-     so the menu can never stay stuck open after switching back to desktop */
+  /* the burger only exists on narrow screens; close it on Escape, on resize
+     (so it can never stay stuck open after switching back to desktop), and on
+     any tap outside the header itself — the burger and the nav panel are both
+     inside headerRef, so tapping either of them is not "outside" */
   useEffect(() => {
     if (!menuOpen) return
 
@@ -17,17 +20,24 @@ export default function Header() {
       if (event.key === 'Escape') setMenuOpen(false)
     }
     const onResize = () => setMenuOpen(false)
+    const onPointerDown = (event) => {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setMenuOpen(false)
+      }
+    }
 
     window.addEventListener('keydown', onKey)
     window.addEventListener('resize', onResize)
+    document.addEventListener('pointerdown', onPointerDown)
     return () => {
       window.removeEventListener('keydown', onKey)
       window.removeEventListener('resize', onResize)
+      document.removeEventListener('pointerdown', onPointerDown)
     }
   }, [menuOpen])
 
   return (
-    <header className="header">
+    <header className="header" ref={headerRef}>
       <div className="container header__inner">
         <button
           className="burger"
