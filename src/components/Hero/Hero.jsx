@@ -16,7 +16,11 @@ function PillIcon({ index }) {
   return (
     <svg className="pill__icon" viewBox={`0 0 ${width} 12`} aria-hidden="true">
       {Array.from({ length: index }, (_, i) => (
-        <path key={i} d={`M${i * 8 + 6},0 a6,6 0 0,0 0,12 z`} fill="var(--white)" />
+        <path
+          key={i}
+          d={`M${i * 8 + 6},0 a6,6 0 0,0 0,12 z`}
+          fill="var(--white)"
+        />
       ))}
       <circle cx={width - 6} cy="6" r="6" fill="var(--white)" />
     </svg>
@@ -52,7 +56,7 @@ export default function Hero() {
                 aria-hidden="true"
               />
 
-              <h1 className="hero__name">
+              <h1 className={`hero__name lang-${lang}`}>
                 <span>{t.hero.firstName}</span>
                 <span className="hero__name-last">
                   {t.hero.lastName}
@@ -85,7 +89,7 @@ export default function Hero() {
           <div className="hero__visual">
             <img
               className="hero__image"
-              src="/hero/hero.png"
+              src="/hero/main.png"
               alt={
                 lang === "ru"
                   ? "Планшет, стилус и 3D-сфера"

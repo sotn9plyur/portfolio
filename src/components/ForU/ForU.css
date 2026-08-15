@@ -302,9 +302,9 @@
   }
 
   /* the counter reads orange on mobile */
-  .foru__counter-value {
+  /*   .foru__counter-value {
     color: var(--orange);
-  }
+  } */
 
   .foru__counter {
     --counter-size: clamp(44px, 8vh, 64px);

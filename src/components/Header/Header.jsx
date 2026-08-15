@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useLanguage } from '../../i18n/LanguageContext.jsx'
+import { useLanguage, useLanguageActions } from '../../i18n/LanguageContext.jsx'
 import { LINKS } from '../../i18n/translations.js'
 import './Header.css'
 
 export default function Header() {
-  const { t, lang, toggleLang } = useLanguage()
+  const { t, lang } = useLanguage()
+  const { toggleLang } = useLanguageActions()
   const [menuOpen, setMenuOpen] = useState(false)
 
   /* the burger only exists on narrow screens; close it on Escape and on resize

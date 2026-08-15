@@ -20,7 +20,7 @@
 
 .hero__top {
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   gap: 20px;
 }
@@ -49,7 +49,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--font-display);
-  font-size: 125px;
+  font-size: 130px;
   font-weight: 800;
   line-height: 0.98;
   letter-spacing: 0.01em;
@@ -117,7 +117,7 @@
 /* rotating circular caption */
 .hero__ring {
   position: absolute;
-  top: 2%;
+  top: -10%;
   right: -1%;
   width: 220px;
   height: 220px;
@@ -135,7 +135,7 @@
   fill: var(--orange);
   font-size: 20px;
   font-weight: 600;
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
 @keyframes ring-spin {
@@ -327,8 +327,19 @@
   }
 
   .hero__name {
-    font-size: clamp(56px, 19vw, 82px);
     line-height: 1.06;
+  }
+
+  /* Cyrillic and Latin glyphs don't fill the same box at the same size, so
+     each language gets its own clamp rather than sharing one number. */
+  .hero__name.lang-ru {
+    width: 335px;
+    font-size: 89px;
+  }
+
+  .hero__name.lang-en {
+    width: 335px;
+    font-size: 86px;
   }
 
   /* the cross is pinned to the right edge, level with the surname */
