@@ -1,5 +1,11 @@
+/* Caps every section's own box at 1440px, not just their inner .container —
+   otherwise full-bleed decorations (the hero glow + grid, footer bubbles)
+   would keep stretching with the viewport while the text column stayed put,
+   drifting out of sync with anything pinned to a fixed pixel position. */
 .page {
   position: relative;
+  max-width: 1440px;
+  margin-inline: auto;
 }
 
 /* The mesh is a page-level layer, but it is only lit where the hero glow falls:
