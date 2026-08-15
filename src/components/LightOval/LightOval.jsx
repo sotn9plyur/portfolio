@@ -1,3 +1,4 @@
+import { memo } from "react";
 import "./LightOval.css";
 
 /**
@@ -10,8 +11,12 @@ import "./LightOval.css";
  * opacity  strength at the centre, 0..1
  * blur     extra blur in px on top of the gradient falloff
  * color    any CSS colour; defaults to the brand glow colour
+ *
+ * Every prop here is a primitive, so React.memo's default shallow compare is
+ * enough to skip re-rendering this when its parent section re-renders for an
+ * unrelated reason (e.g. a language switch) but hands it the same values.
  */
-export default function LightOval({
+function LightOval({
   size = 600,
   x = "50%",
   y = "50%",
@@ -35,3 +40,5 @@ export default function LightOval({
     />
   );
 }
+
+export default memo(LightOval);

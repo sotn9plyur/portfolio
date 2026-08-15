@@ -1,3 +1,4 @@
+import { memo } from "react";
 import "./HeroGrid.css";
 
 /**
@@ -11,8 +12,12 @@ import "./HeroGrid.css";
  * opacity  line opacity, 0..1
  * x, y     centre of the fade mask, so the mesh never hits a hard edge
  * color    line colour
+ *
+ * Every prop here is a primitive, so React.memo's default shallow compare is
+ * enough to skip re-rendering this when App re-renders for an unrelated
+ * reason but hands it the same values.
  */
-export default function HeroGrid({
+function HeroGrid({
   cell = 150,
   opacity = 0.055,
   x = "50%",
@@ -34,3 +39,5 @@ export default function HeroGrid({
     />
   );
 }
+
+export default memo(HeroGrid);

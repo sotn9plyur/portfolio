@@ -59,16 +59,16 @@ export const translations = {
       title: ['Мои', 'преимущества'],
       items: [
         {
-          title: 'AI и нейросети',
-          text: 'Использую нейросети в работе с дизайном, разработкой и контентом. Разбираюсь в настройке AI-агентов, подключении инструментов и построении простых цепочек автоматизации. Экспериментирую с разными моделями и способами их использования в реальных рабочих задачах.',
+          title: 'AI и автоматизация',
+          text: 'Использую нейросети в работе с дизайном, разработкой и контентом. Разбираюсь в настройке AI-агентов, подключении инструментов и построении простых цепочек автоматизации. Экспериментирую с разными моделями и ищу практические способы применять AI в рабочих задачах.',
         },
         {
-          title: 'Оптимизация SEO',
-          text: 'Работаю с SEO-оптимизацией сайтов. Настраиваю структуру страниц, заголовки, мета-данные и контент, обращаю внимание на технические моменты, которые влияют на отображение сайта в поисковых системах.',
+          title: 'SEO-настройка',
+          text: 'Работаю с базовой SEO-оптимизацией сайтов. Настраиваю структуру страниц, заголовки, мета-данные и контент, а также учитываю технические особенности, которые могут влиять на поисковую выдачу.',
         },
         {
           title: 'Tilda / Zero Block',
-          text: 'Оперативно создаю посадочные страницы и когда стандартных блоков недостаточно для реализации дизайна. Собираю нестандартные секции, настраиваю адаптивность и стараюсь максимально точно перенести готовый макет в работающую страницу.',
+          text: 'Создаю посадочные страницы в Tilda и работаю с Zero Block, когда стандартных возможностей платформы недостаточно. Собираю нестандартные секции, настраиваю адаптивность и уделяю внимание точному соответствию дизайну.',
         },
       ],
     },
@@ -170,16 +170,16 @@ export const translations = {
       title: ['My', 'advantages'],
       items: [
         {
-          title: 'AI and neural networks',
-          text: 'I use neural networks in design, development and content work. I know my way around setting up AI agents, wiring in tools and building simple automation chains. I experiment with different models and with ways of putting them to work on real tasks.',
+          title: 'AI and automation',
+          text: 'I use neural networks in design, development and content work. I know my way around setting up AI agents, wiring in tools and building simple automation chains. I experiment with different models and look for practical ways to put AI to work on real tasks.',
         },
         {
-          title: 'SEO optimisation',
-          text: 'I work on the SEO side of websites. I set up page structure, headings, metadata and content, and keep an eye on the technical details that affect how a site shows up in search engines.',
+          title: 'SEO setup',
+          text: 'I work on the basic SEO side of websites. I set up page structure, headings, metadata and content, and factor in the technical details that can affect search rankings.',
         },
         {
           title: 'Tilda / Zero Block',
-          text: 'I build landing pages quickly, including the cases where the stock blocks are not enough to deliver the design. I assemble custom sections, set up responsive behaviour and aim to carry the finished layout over into a working page as precisely as possible.',
+          text: 'I build landing pages in Tilda and work with Zero Block whenever the platform’s standard options fall short. I assemble custom sections, set up responsive behaviour and pay close attention to matching the design precisely.',
         },
       ],
     },

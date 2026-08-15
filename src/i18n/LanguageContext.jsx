@@ -1,36 +1,53 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, useContext, useEffect, useMemo, useReducer } from 'react'
 import { translations } from './translations'
+import {
+  initLanguageState,
+  initialState,
+  languageReducer,
+  persistLanguage,
+  setLanguage,
+  toggleLanguage,
+} from '../store/languageSlice'
 
-const LanguageContext = createContext(null)
-
-const STORAGE_KEY = 'chaga-lang'
+/* Two contexts on purpose: the actions object never changes, so anything that
+   only needs to switch the language does not re-render when it switches. */
+const LanguageValueContext = createContext(null)
+const LanguageActionsContext = createContext(null)
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState(() => {
-    const saved = localStorage.getItem(STORAGE_KEY)
-    return saved === 'en' || saved === 'ru' ? saved : 'ru'
-  })
+  const [{ lang }, dispatch] = useReducer(languageReducer, initialState, initLanguageState)
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, lang)
-    document.documentElement.lang = lang
+    persistLanguage(lang)
   }, [lang])
 
-  const value = useMemo(
+  const value = useMemo(() => ({ lang, t: translations[lang] }), [lang])
+
+  const actions = useMemo(
     () => ({
-      lang,
-      setLang,
-      toggleLang: () => setLang((prev) => (prev === 'ru' ? 'en' : 'ru')),
-      t: translations[lang],
+      setLang: (next) => dispatch(setLanguage(next)),
+      toggleLang: () => dispatch(toggleLanguage()),
     }),
-    [lang]
+    []
   )
 
-  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>
+  return (
+    <LanguageActionsContext.Provider value={actions}>
+      <LanguageValueContext.Provider value={value}>{children}</LanguageValueContext.Provider>
+    </LanguageActionsContext.Provider>
+  )
 }
 
+/* current language and its dictionary — changes on every switch */
 export function useLanguage() {
-  const ctx = useContext(LanguageContext)
+  const ctx = useContext(LanguageValueContext)
   if (!ctx) throw new Error('useLanguage must be used inside <LanguageProvider>')
+  return ctx
+}
+
+/* stable setters — subscribing to these never causes a re-render */
+export function useLanguageActions() {
+  const ctx = useContext(LanguageActionsContext)
+  if (!ctx) throw new Error('useLanguageActions must be used inside <LanguageProvider>')
   return ctx
 }
