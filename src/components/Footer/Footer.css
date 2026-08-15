@@ -1,6 +1,11 @@
+/* capped to match .page — otherwise the bubbles (positioned as % of this
+   element's own box) would keep spreading out on wide viewports instead of
+   staying within the site's 1440px canvas */
 .footer {
   position: relative;
   overflow: hidden;
+  max-width: 1440px;
+  margin-inline: auto;
   padding-top: clamp(70px, 10vw, 130px);
   background:
     radial-gradient(

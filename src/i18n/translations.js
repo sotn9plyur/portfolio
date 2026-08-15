@@ -70,6 +70,10 @@ export const translations = {
           title: 'Tilda / Zero Block',
           text: 'Создаю посадочные страницы в Tilda и работаю с Zero Block, когда стандартных возможностей платформы недостаточно. Собираю нестандартные секции, настраиваю адаптивность и уделяю внимание точному соответствию дизайну.',
         },
+        {
+          title: 'Типы проектов',
+          text: 'Работаю с цифровыми продуктами разного масштаба и сложности: CRM-системами, интернет-магазинами, личными кабинетами, финансовыми сервисами, корпоративными сайтами и нестандартными веб-проектами. Умею работать как с небольшими лендингами, так и со сложными продуктами с большим количеством данных и пользовательских сценариев.',
+        },
       ],
     },
     steps: {
@@ -180,6 +184,10 @@ export const translations = {
         {
           title: 'Tilda / Zero Block',
           text: 'I build landing pages in Tilda and work with Zero Block whenever the platform’s standard options fall short. I assemble custom sections, set up responsive behaviour and pay close attention to matching the design precisely.',
+        },
+        {
+          title: 'Types of projects',
+          text: 'I work with digital products of varying scale and complexity: CRM systems, online stores, personal dashboards, financial services, corporate websites and non-standard web projects. I can handle anything from a small landing page to complex products with large amounts of data and user scenarios.',
         },
       ],
     },
