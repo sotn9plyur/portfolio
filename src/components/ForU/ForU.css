@@ -8,13 +8,16 @@
   height: calc(var(--slides) * 100vh);
 }
 
+/* no overflow clip here — same reasoning as .can: the ambient glow needs
+   room to fade out past the section's own 1440px edge, all the way to the
+   true page edge (body handles that final clip). Nothing else inside the
+   pin needs it — the banner and the counter window already clip themselves. */
 .foru__pin {
   position: sticky;
   top: 0;
   display: flex;
   align-items: center;
   min-height: 100vh;
-  overflow: hidden;
 }
 
 .foru__inner {
@@ -294,7 +297,7 @@
 
   .foru__text {
     margin-left: 26px;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .foru__divider {

@@ -35,8 +35,8 @@
 
   --orange-soft: #ff7a3d;
   --muted: var(--grey);
-  --muted-2: rgba(var(--grey-rgb), 0.55);
-  --line: rgba(var(--grey-rgb), 0.16);
+  --muted-2: var(--grey);
+  --line: var(--grey);
 
   --gutter: 80px;
   --gutter-narrow: 20px;

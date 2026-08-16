@@ -1,6 +1,8 @@
-/* capped to match .page — otherwise the bubbles (positioned as % of this
-   element's own box) would keep spreading out on wide viewports instead of
-   staying within the site's 1440px canvas */
+/* capped to match .page so the bubbles stay on the site's 1440px canvas.
+   The glow is sized to finish inside that box: a 62% horizontal radius
+   reaches 446px either side of centre and is fully transparent by 70% of
+   that, so it fades out well before the 1440 edge and never meets the flat
+   "ear" background with a hard line. */
 .footer {
   position: relative;
   overflow: hidden;
@@ -9,7 +11,7 @@
   padding-top: clamp(70px, 10vw, 130px);
   background:
     radial-gradient(
-      120% 90% at 50% 100%,
+      62% 85% at 50% 100%,
       rgba(var(--blue-rgb), 0.16) 0%,
       rgba(var(--bg-rgb), 0) 70%
     ),
@@ -180,7 +182,7 @@
   }
 
   .footer__tagline {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .footer__cta img {
