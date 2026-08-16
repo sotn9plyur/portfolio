@@ -23,8 +23,8 @@
       }
 
       .preloader svg {
-        width: 100%; /*тут были значения 180 и 90*/
-        height: 100%;
+        width: 70%; /*тут были значения 180 и 90*/
+        height: 70%;
         fill: none;
       }
 
@@ -48,11 +48,20 @@
     <div class="preloader" id="preloader" role="status" aria-label="Загрузка">
       <svg viewBox="-2000 -1000 4000 2000" aria-hidden="true">
         <path
-          class="preloader__line"
+          class="preloader__track"
           d="M354 -354 A500 500 0 1 1 354 354 L-354 -354 A500 500 0 1 0 -354 354 Z"
           fill="none"
           stroke="#00c2ff"
-          stroke-width="100"
+          stroke-width="400"
+          stroke-linecap="round"
+          opacity="0.3"
+        ></path>
+        <path
+          class="preloader__line"
+          d="M354 -354 A500 500 0 1 1 354 354 L-354 -354 A500 500 0 1 0 -354 354 Z"
+          fill="none"
+          stroke="#3282bd"
+          stroke-width="400"
           stroke-linecap="round"
           stroke-dasharray="1570 5143"
         ></path>
