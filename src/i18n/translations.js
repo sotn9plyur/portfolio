@@ -34,7 +34,7 @@ export const translations = {
       slides: [
         {
           heading: 'UX/UI проектирование:',
-          text: 'От структуры и пользовательских сценариев до готового интерфейса. Думаю не только о визуале, но и о том, как пользователь взаимодействует с продуктом.',
+          text: 'От пользовательских сценариев до готового интерфейса. Думаю не только о визуале, но и о том, как пользователь взаимодействует с продуктом.',
         },
         {
           heading: 'Анимация:',
@@ -42,7 +42,7 @@ export const translations = {
         },
         {
           heading: 'Презентации:',
-          text: 'Превращаю сложную информацию в понятные и визуально выразительные презентации. Работаю с композицией, типографикой, графикой и создаю цельную визуальную подачу.',
+          text: 'Превращаю сложную информацию в понятные и визуально выразительные презентации: графики, таблицы, отчеты и создаю цельную визуальную подачу.',
         },
         {
           heading: '3D дизайн:',
@@ -149,7 +149,7 @@ export const translations = {
       slides: [
         {
           heading: 'UX/UI design:',
-          text: 'From structure and user journeys through to the finished interface. I think not only about how it looks, but about how people actually interact with it.',
+          text: 'From user scenarios to the finished interface. I’m thinking not only about the visuals, but also about how the user interacts with the product.',
         },
         {
           heading: 'Animation:',
@@ -157,7 +157,7 @@ export const translations = {
         },
         {
           heading: 'Presentations:',
-          text: 'I turn complex information into clear, visually expressive presentations. I work with composition, typography and graphics to build a coherent visual story.',
+          text: 'I transform complex information into clear and visually engaging presentations: graphs, tables, reports, and create a cohesive visual presentation.',
         },
         {
           heading: '3D design:',
