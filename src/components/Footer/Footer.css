@@ -9,13 +9,11 @@
   max-width: 1440px;
   margin-inline: auto;
   padding-top: clamp(70px, 10vw, 130px);
-  background:
-    radial-gradient(
-      62% 85% at 50% 100%,
-      rgba(var(--blue-rgb), 0.16) 0%,
-      rgba(var(--bg-rgb), 0) 70%
-    ),
-    var(--bg);
+  background: radial-gradient(
+    70% 100% at 50% 110%,
+    rgba(var(--blue-rgb), 0.16) 0%,
+    rgba(var(--bg-rgb), 0) 70%
+  );
 }
 
 /* ---------- floating bubbles ---------- */
