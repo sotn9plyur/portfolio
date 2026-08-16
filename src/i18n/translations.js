@@ -34,7 +34,7 @@ export const translations = {
       slides: [
         {
           heading: 'UX/UI проектирование:',
-          text: 'Проектирую цифровые продукты — от структуры и пользовательских сценариев до готового интерфейса. Думаю не только о визуале, но и о том, как пользователь взаимодействует с продуктом.',
+          text: 'От структуры и пользовательских сценариев до готового интерфейса. Думаю не только о визуале, но и о том, как пользователь взаимодействует с продуктом.',
         },
         {
           heading: 'Анимация:',
@@ -149,7 +149,7 @@ export const translations = {
       slides: [
         {
           heading: 'UX/UI design:',
-          text: 'I design digital products — from structure and user journeys through to the finished interface. I think not only about how it looks, but about how people actually interact with it.',
+          text: 'From structure and user journeys through to the finished interface. I think not only about how it looks, but about how people actually interact with it.',
         },
         {
           heading: 'Animation:',
