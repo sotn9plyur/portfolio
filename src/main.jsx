@@ -22,9 +22,11 @@ const pageLoaded =
         window.addEventListener('load', resolve, { once: true }),
       )
 
-const fontsLoaded = document.fonts?.ready ?? Promise.resolve()
-
-Promise.all([pageLoaded, fontsLoaded]).then(hidePreloader)
+// Not waiting on document.fonts.ready here on purpose: font-display: swap
+// already lets text render with a fallback the instant it's laid out, so
+// gating the preloader on the ~3.5MB of custom fonts finishing download too
+// just makes people stare at a spinner for no visual benefit.
+pageLoaded.then(hidePreloader)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
