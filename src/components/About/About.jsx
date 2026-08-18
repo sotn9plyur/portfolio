@@ -28,7 +28,7 @@ export default function About() {
           <div className="about__panel">
             <img
               className="about__panel-image"
-              src="/portfolios/1.png"
+              src="/portfolios/1.webp"
               alt={lang === 'ru' ? 'Оранжевые стеклянные сферы' : 'Orange glass spheres'}
             />
             <span className="about__panel-badge" aria-hidden="true">

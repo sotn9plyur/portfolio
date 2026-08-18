@@ -20,7 +20,7 @@
   height: 570px;
   padding-inline: 80px;
   border-radius: 28px;
-  background-image: url("/portfolios/2.png");
+  background-image: url("/portfolios/2.webp");
   background-size: cover;
   background-position: center;
 }
@@ -146,7 +146,7 @@
     /* tuned so roughly the top third of the white panel sits on the backdrop */
     height: 61%;
     border-radius: 28px;
-    background-image: url('/portfolios/2.png');
+    background-image: url('/portfolios/2.webp');
     background-size: cover;
     background-position: center;
   }

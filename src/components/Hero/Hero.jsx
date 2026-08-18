@@ -89,7 +89,7 @@ export default function Hero() {
           <div className="hero__visual">
             <img
               className="hero__image"
-              src="/hero/main.png"
+              src="/hero/main.webp"
               alt={
                 lang === "ru"
                   ? "Планшет, стилус и 3D-сфера"

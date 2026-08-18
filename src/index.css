@@ -3,7 +3,9 @@
    with the matching font-weight to replace the faux bold. */
 @font-face {
   font-family: "SF Pro Rounded";
-  src: url("./fonts/sf-pro-rounded.ttf") format("truetype");
+  src:
+    url("./fonts/sf-pro-rounded.woff2") format("woff2"),
+    url("./fonts/sf-pro-rounded.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -11,7 +13,9 @@
 
 @font-face {
   font-family: "SF Compact Rounded";
-  src: url("./fonts/sf-compact-rounded.ttf") format("truetype");
+  src:
+    url("./fonts/sf-compact-rounded.woff2") format("woff2"),
+    url("./fonts/sf-compact-rounded.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;

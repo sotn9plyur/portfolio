@@ -5,20 +5,20 @@ import "./ForU.css";
 
 const SLIDES = [
   {
-    wallpaper: "/foru/img/wallpaper/1.png",
-    obj: "/foru/img/obj/01_ux_ui_design.png",
+    wallpaper: "/foru/img/wallpaper/1.webp",
+    obj: "/foru/img/obj/01_ux_ui_design.webp",
   },
   {
-    wallpaper: "/foru/img/wallpaper/2.png",
-    obj: "/foru/img/obj/02_motion_design.png",
+    wallpaper: "/foru/img/wallpaper/2.webp",
+    obj: "/foru/img/obj/02_motion_design.webp",
   },
   {
-    wallpaper: "/foru/img/wallpaper/3.png",
-    obj: "/foru/img/obj/03_presentations.png",
+    wallpaper: "/foru/img/wallpaper/3.webp",
+    obj: "/foru/img/obj/03_presentations.webp",
   },
   {
-    wallpaper: "/foru/img/wallpaper/4.png",
-    obj: "/foru/img/obj/04_3d_design.png",
+    wallpaper: "/foru/img/wallpaper/4.webp",
+    obj: "/foru/img/obj/04_3d_design.webp",
   },
 ];
 
