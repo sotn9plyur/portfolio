@@ -334,12 +334,12 @@
      each language gets its own clamp rather than sharing one number. */
   .hero__name.lang-ru {
     width: 335px;
-    font-size: 89px;
+    font-size: clamp(89px, 7.5vw, 130px);
   }
 
   .hero__name.lang-en {
     width: 335px;
-    font-size: 86px;
+    font-size: clamp(86px, 7.5vw, 130px);
   }
 
   /* the cross is pinned to the right edge, level with the surname */
