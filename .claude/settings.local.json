@@ -17,7 +17,9 @@
       "Bash(command -v fonttools)",
       "Bash(fonttools --version)",
       "Bash(python3 -c \"import fontTools; print\\('fonttools python module:', fontTools.version\\)\")",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(git fetch *)",
+      "Bash(git ls-remote *)"
     ]
   }
 }
